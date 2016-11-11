@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <EditText
+        android:maxLength="30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/cardTextTitle"
+        android:layout_weight="0.04" />
+    <!-- 제목 글자수 제한 -->
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewPath"
+        android:layout_weight="0.07" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/cardTextContent"
+        android:layout_weight="0.04" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/DateButton" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/TimeButton" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/Pushbutton" />
+
+
+</LinearLayout>

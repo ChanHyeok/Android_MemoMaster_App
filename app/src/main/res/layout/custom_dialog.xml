@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_layout"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Card Title"
+        android:textSize="20dp"/>
+
+
+
+    <EditText
+        android:id="@+id/cardNameBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Card Description"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/cardContentBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <Button
+            android:id="@+id/alarmBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알람"
+            android:textSize="30dp"
+            />
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_alignRight="@id/alarmBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textSize="30dp"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.administrator.mobiletermproject.MainActivity">
+    <item
+        android:id="@+id/Search"
+        android:icon="@drawable/ic_search_white_24dp"
+        app:showAsAction="always|withText"
+        android:title="Search"
+        android:onClick="onOptionsItemSelected"
+        ></item>
+    <item
+        android:id="@+id/Notipication"
+        android:icon="@drawable/ic_notifications_none_white_24dp"
+        app:showAsAction="always|withText"
+        android:title="Notipication"
+        android:onClick="onOptionsItemSelected"
+        ></item>
+    <!--<item
+        android:id="@+id/Delete"
+        android:icon="@drawable/ic_delete_white_24dp"
+        app:showAsAction="always|withText"
+        android:title="Delete"
+        android:onClick="onOptionsItemSelected"
+        ></item>       잠시 주석-->
+</menu>
