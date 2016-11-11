@@ -24,7 +24,9 @@ import java.io.FileFilter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-
+/**
+ * Created by ChanHyeok
+ */
 public class LibraryActivity extends AppCompatActivity {
     private final int FOLDER_NUMBER=4;//폴더의 수 - 현재 변경 불가
     private int[] resID=new int[FOLDER_NUMBER];//폴더 각각의 리스트 아이디를 저장할 배열

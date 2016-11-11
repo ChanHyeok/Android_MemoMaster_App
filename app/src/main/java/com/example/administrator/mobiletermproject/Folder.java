@@ -3,8 +3,8 @@ package com.example.administrator.mobiletermproject;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
-
 /**
+ * Created by ChanHyeok
  * 라이브러리 내의 폴더들의 정보를 저장하고, 폴더내의 카드들의 목록을 가짐
  */
 
