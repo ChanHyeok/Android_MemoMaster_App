@@ -6,7 +6,9 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#3F6FFF"
+    >
 
     <LinearLayout
         android:id="@+id/linearLayout_focus"
@@ -17,6 +19,7 @@
         android:layout_height="0px"/>
 
     <HorizontalScrollView
+        android:id="@+id/hr"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
@@ -26,25 +29,32 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
+            <!-- folder1 레이아웃 -->
             <LinearLayout
                 android:id="@+id/folder1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:paddingTop="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="15dp"
+                android:background="#ffffff"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp">
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
                     <EditText
                         android:id="@+id/text0"
-                        android:layout_width="300dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:text="Folder 1"
-                        android:textSize="30dp"
-                        android:background="@null"
-                        android:cursorVisible="false"/>
+                        android:background="#A2C6FF"
+                        android:cursorVisible="false"
+                        android:textSize="28dp"
+                        android:paddingLeft="3dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="horizontal"
@@ -54,7 +64,7 @@
                     <ListView
                         android:id="@+id/list0"
                         android:layout_height="wrap_content"
-                        android:layout_width="300dp"
+                        android:layout_width="280dp"
                         android:dividerHeight="2px">
                     </ListView>
                 </LinearLayout>
@@ -65,34 +75,43 @@
                     android:layout_height="wrap_content">
                     <Button
                         android:id="@+id/add1"
-                        android:layout_width="300dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:text="ADD CARD"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
                         android:onClick="onCardAddbtnClicked"/>
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- folder2 레이아웃 -->
             <LinearLayout
                 android:id="@+id/folder2"
                 android:layout_toRightOf="@id/folder1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:paddingTop="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:background="#ffffff">
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
                     <EditText
                         android:id="@+id/text1"
-                        android:layout_width="300dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:text="Folder 2"
-                        android:textSize="30dp"
-                        android:background="@null"
-                        android:cursorVisible="false"/>
+                        android:background="#A2C6FF"
+                        android:cursorVisible="false"
+                        android:textSize="28dp"
+                        android:paddingLeft="3dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="horizontal"
@@ -102,7 +121,7 @@
                     <ListView
                         android:id="@+id/list1"
                         android:layout_height="wrap_content"
-                        android:layout_width="300dp"
+                        android:layout_width="280dp"
                         android:dividerHeight="2px">
                     </ListView>
                 </LinearLayout>
@@ -113,34 +132,43 @@
                     android:layout_height="wrap_content">
                     <Button
                         android:id="@+id/add2"
-                        android:layout_width="300dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:text="ADD CARD"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
                         android:onClick="onCardAddbtnClicked"/>
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- folder3 레이아웃 -->
             <LinearLayout
                 android:id="@+id/folder3"
                 android:layout_toRightOf="@id/folder2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:paddingTop="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:background="#ffffff">
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
                     <EditText
                         android:id="@+id/text2"
-                        android:layout_width="300dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:text="Folder 3"
-                        android:textSize="30dp"
-                        android:background="@null"
-                        android:cursorVisible="false"/>
+                        android:background="#A2C6FF"
+                        android:cursorVisible="false"
+                        android:textSize="28dp"
+                        android:paddingLeft="3dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="horizontal"
@@ -150,7 +178,7 @@
                     <ListView
                         android:id="@+id/list2"
                         android:layout_height="wrap_content"
-                        android:layout_width="300dp"
+                        android:layout_width="280dp"
                         android:dividerHeight="2px">
                     </ListView>
                 </LinearLayout>
@@ -161,34 +189,43 @@
                     android:layout_height="wrap_content">
                     <Button
                         android:id="@+id/add3"
-                        android:layout_width="300dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:text="ADD CARD"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
                         android:onClick="onCardAddbtnClicked"/>
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- folder4 레이아웃 -->
             <LinearLayout
                 android:id="@+id/folder4"
                 android:layout_toRightOf="@id/folder3"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:paddingTop="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:background="#ffffff">
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
                     <EditText
                         android:id="@+id/text3"
-                        android:layout_width="300dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:text="Folder 4"
-                        android:textSize="30dp"
-                        android:background="@null"
-                        android:cursorVisible="false"/>
+                        android:background="#A2C6FF"
+                        android:cursorVisible="false"
+                        android:textSize="28dp"
+                        android:paddingLeft="3dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="horizontal"
@@ -198,7 +235,7 @@
                     <ListView
                         android:id="@+id/list3"
                         android:layout_height="wrap_content"
-                        android:layout_width="300dp"
+                        android:layout_width="280dp"
                         android:dividerHeight="2px">
                     </ListView>
                 </LinearLayout>
@@ -209,15 +246,15 @@
                     android:layout_height="wrap_content">
                     <Button
                         android:id="@+id/add4"
-                        android:layout_width="300dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:text="ADD CARD"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
                         android:onClick="onCardAddbtnClicked"/>
                 </LinearLayout>
             </LinearLayout>
-
-
         </RelativeLayout>
     </HorizontalScrollView>
 </RelativeLayout>

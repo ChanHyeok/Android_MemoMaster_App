@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cardTextTitle"
+        android:id="@+id/cardEditTextTitle"
         android:textSize="25dp"
         android:layout_weight="0.01"
-        android:paddingTop="20dp"
         android:paddingLeft="20dp"
         android:background="#005DFF"
         android:textColor="#FFFFFF" />
@@ -25,8 +22,7 @@
         android:paddingTop="10dp"
         android:textSize="13dp"
         android:background="#2B78FF"
-        android:textColor="#FFFFFF"
-        />
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="match_parent"
@@ -36,27 +32,25 @@
         android:paddingLeft="15dp"
         android:paddingTop="15dp"
         android:textSize="20dp"
-        android:textColor="@android:color/black"
-        />
+        android:textColor="@android:color/black" />
 
-    <TextView
+    <EditText
+        android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cardTextContent"
         android:textSize="30dp"
         android:layout_weight="0.07"
         android:paddingLeft="20dp"
-        android:textColor="#2B78FF" />
+        android:textColor="#005DFF" />
 
     <Button
+        android:text="Save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/testbtn"
-        android:onClick="onTestBtnListener"
-        android:text="알람 제거"
+        android:id="@+id/editCompelete"
         android:layout_gravity="bottom"
         android:background="#2B78FF"
-        android:textColor="#FFFFFF"/>
-
-
+        android:textColor="#FFFFFF"
+        android:onClick="onClick" />
 </LinearLayout>
