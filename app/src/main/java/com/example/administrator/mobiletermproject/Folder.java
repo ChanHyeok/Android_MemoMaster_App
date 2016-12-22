@@ -3,8 +3,8 @@ package com.example.administrator.mobiletermproject;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
+
 /**
- * Created by ChanHyeok
  * 라이브러리 내의 폴더들의 정보를 저장하고, 폴더내의 카드들의 목록을 가짐
  */
 
@@ -13,6 +13,7 @@ public class Folder extends LibraryActivity{
     private int listVIewID,textID;
     public ArrayList<String> nameOfCard= new ArrayList<String>();//카드들 이름을 저장할 ArrayList
     private String libTitle="";
+
     //생성자
     public Folder(String name, int resID, int textID, String title){
         setFolderName(name); //폴더이름 초기화
@@ -67,6 +68,7 @@ public class Folder extends LibraryActivity{
             };
             File file = new File("/data/data/com.example.administrator.mobiletermproject/files/"+getLibTitle()+"/"+getFolderName()); //폴더 이름의 경로로 접근
             File[] files = file.listFiles(fileFilter);//확장자 필터 적용
+
             //콘솔창에 현재 폴더에 있는 파일 출력 및 어레이리스트 업데이트
             System.out.println("        <<  폴더 : "+getFolderName()+"   >>    ");
             System.out.println("다음과 같은 카드들이 있습니다.");

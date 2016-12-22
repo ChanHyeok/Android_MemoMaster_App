@@ -2,6 +2,7 @@ package com.example.administrator.mobiletermproject;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,18 +27,32 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
     private ListView library_listView;//라이브러리를 나열할 리스트 뷰
     private ArrayAdapter<String> library_Adapter; //라이브러리 리스트뷰에 쓰일 어댑터
     ///data/data/com.example.administrator.mobiletermproject/files/ 경로아래의 폴더명을 저장할 ArrayList
     private ArrayList<String> nameOfLib= new ArrayList<String>();
     private File filesPath = new File("/data/data/com.example.administrator.mobiletermproject/files"); //라이브러리(폴더)가 저장되는 경로
 
+    // 값 저장하기
+    private void SPsetting(){
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        if(pref.contains("index")){
+            //index 키값이 이미 있다면 그냥 넘어감
+        }
+        else//index키 값이 없을 경우-> 어플리케이션을 맨 처음 실행 한 경우
+            editor.putInt("index", 0);
 
+        editor.commit();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //sharedpreference 사용을 위한 설정
+        SPsetting();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -63,16 +79,18 @@ public class MainActivity extends AppCompatActivity {
                             }
                         })
                         .setPositiveButton("CANCLE",new DialogInterface.OnClickListener(){
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int whichButton){
+                            @Override
+                            public void onClick(DialogInterface dialog, int whichButton){
 
-                                    }
+                            }
                         }).create();
 
                 alert.setOnShowListener(new DialogInterface.OnShowListener() {
+
+
                     @Override
                     public void onShow(DialogInterface dialog) {
-
+                        alert.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                         Button Create = alert.getButton(AlertDialog.BUTTON_NEGATIVE);
                         Create.setOnClickListener(new View.OnClickListener() {
 
@@ -81,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                                 // TODO Do something
                                 String value = input.getText().toString();
                                 if(value.equals("")){ // 공백이면 제목적으라고 토스트 날려줌
-                                    Toast.makeText(getApplicationContext(), "Library name can't be empty space", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "제목은 공란일 수 없습니다.", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
                                 else{
@@ -97,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                                             }
                                         }
                                         if(isAlreadyLibrary){
-                                            Toast.makeText(getApplicationContext(), "Already same Library name exist", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(), "이미 있는 제목입니다.", Toast.LENGTH_SHORT).show();
                                             return; //리턴 시켜서 다시 작성하도록 권함
                                         }
                                         else{
@@ -121,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 alert.show();
-        };
+            };
 
         });
 
@@ -131,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public boolean canDismiss(int position) {
                                 return true;
-                            }// 슬라이드 했다가 조루처럼 놨을 때 ->신기한 기능이네
+                            }
 
                             @Override
                             public void onDismiss(final ListView listView, final int[] reverseSortedPositions) {
@@ -143,13 +161,13 @@ public class MainActivity extends AppCompatActivity {
                                 alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {//yes 클릭 시
-                                        //삭제
+                                        // 삭제
                                         for (int position : reverseSortedPositions) {
-                                            //라이브러리 명으로 삭제 메서드 접근
+                                            // 라이브러리 명으로 삭제 메서드 접근
                                             DeleteDir("/data/data/com.example.administrator.mobiletermproject/files/"+listView.getItemAtPosition(position));
                                             onResume();
                                         }
-                                        //리스트뷰를 갱신하는 함수
+                                        // 리스트뷰를 갱신하는 함수
                                         library_Adapter.notifyDataSetChanged();
                                         dialog.dismiss();
                                     }
@@ -158,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
                                 alert.setNegativeButton("NO",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int whichButton) {
-                                                Toast.makeText(getApplicationContext(), "No Clicked", Toast.LENGTH_SHORT).show();
                                                 // Canceled.
                                             }
                                         });
@@ -225,10 +242,10 @@ public class MainActivity extends AppCompatActivity {
             folder4.mkdir();
         }
         if(success){
-            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -259,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
     /*
     라이브러리(폴더)이름을 저장하는 nameOfLib 리스트 업데이트
      */
-    private void updateNOLList(){
+    private void updateNOLList() {
         try{
             FileFilter directoryFilter = new FileFilter() {
                 public boolean accept(File file) {//파일 필터. 폴더 만 읽어옴
@@ -303,39 +320,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()== R.id.Search){//검색 버튼 클릭시
-            Toast.makeText(this, "검색 Activity로 이동", Toast.LENGTH_SHORT).show();
+            Intent in = new Intent(MainActivity.this, SearchActivity.class);
+            in.putExtra("library_name",nameOfLib);
+            startActivity(in);
         }
-        if(item.getItemId()== R.id.Notipication){//알람 버튼 클릭시
-            Toast.makeText(this, "알람 Activity로 이동", Toast.LENGTH_SHORT).show();
-        }
-        ////////////////// 이거 아직 지우지 말아보셈 (정민 )
-        /*if(item.getItemId()== R.id.Delete){//삭제 버튼 클릭시
-            Toast.makeText(this, "슬라이드하여 라이브러리를 삭제하세요.", Toast.LENGTH_LONG).show();
-            SwipeDismissListViewTouchListener touchListener =
-                    new SwipeDismissListViewTouchListener(library_listView,
-                            new SwipeDismissListViewTouchListener.DismissCallbacks() {
-                                @Override
-                                public boolean canDismiss(int position) {
-                                    return true;
-                                }
-
-                                @Override
-                                public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                                    for (int position : reverseSortedPositions) {
-                                        //library_Adapter.remove(library_Adapter.getItem(position));
-                                        deleteFile(nameOfLib.get(position));
-                                        onResume();
-                                    }
-                                    library_Adapter.notifyDataSetChanged();
-                                }
-                            });
-            library_listView.setOnTouchListener(touchListener);
-            library_listView.setOnScrollListener(touchListener.makeScrollListener());
-            // 한번 Delete가 선택 된 이후로 계속해서 슬라이드 하면 지워지는데
-            // 이걸 막을 아이디어를 생각해야된다. 자기가 원할 때 멈출방법
-            //fab 버튼으로 해볼려고했는데 잘안되네
-        }*/
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     /*
