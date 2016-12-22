@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.administrator.mobiletermproject">
+    package="com.example.administrator.mobiletermproject"
+    >
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="MM"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".MainActivity"
             android:label="Memo Master"
@@ -26,6 +28,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.administrator.mobiletermproject.MainActivity" />
         </activity>
+
+        <activity android:name=".CardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.administrator.mobiletermproject.LibraryActivity" />
+
+        </activity>
+
+        <activity android:name=".CardEditActivity" >
+        </activity>
+
+        <activity android:name=".SearchActivity"
+            android:windowSoftInputMode="stateHidden"
+            >
+        </activity>
+
+        <receiver android:name=".BroadcastAlm" >
+        </receiver>
     </application>
 
 </manifest>
